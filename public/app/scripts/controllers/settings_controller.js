@@ -1,0 +1,1 @@
+BooksManager.SettingsController = Ember.ObjectController.extend({});

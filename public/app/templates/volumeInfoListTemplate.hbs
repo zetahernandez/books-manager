@@ -1,0 +1,7 @@
+<div class="thumbnails">
+  {{#each volume in model}}
+    {{view BooksManager.VolumeInfoView eventBinding="volume"  contentBinding="this" target="volume"}}
+  {{/each}}
+</div>
+<div id="modal"></div>
+

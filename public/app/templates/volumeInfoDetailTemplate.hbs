@@ -1,0 +1,58 @@
+<div id="main--{{unbound volumeInfo.id}}" class="row-fluid">
+  {{#if volumeInfo.imageLinks.maxSizeImage}}
+  <div class="span4">
+    <img  {{bindAttr src="volumeInfo.imageLinks.maxSizeImage"}}
+      {{bindAttr title="volumeInfo.title"}}>  
+  </div>
+  {{/if}}
+  <div class="span6">
+    <div>
+      <h2>
+        <span dir="ltr" >{{unbound volumeInfo.title}}</span>&lrm;
+      </h2>
+    </div>
+    {{#if path}}
+          <button  class="btn btn-primary"  {{action openPdf volumeInfo }}>Open Book</button >
+        {{/if}}
+        <button  class="btn btn-primary" {{action "cancel"}}>Back</button >
+    <div>
+      <div>
+        <span>
+          <span style="color: #676767">
+            <a href="#">
+               <span dir="ltr">{{unbound volumeInfo.authors}}</span>
+            </a> 
+            - {{volumeInfo.formattedPublishedDate}} -
+          </span>
+        </span> 
+        {{#if volumeInfo.description}}
+        <div>
+          <div dir="ltr">
+              <p>{{volumeInfo.unescapedDescription}}</p>
+          </div>
+        </div>
+        {{/if}}
+        {{#if volumeInfo.pages}}
+        <div dir="ltr">
+          Pages: {{volumeInfo.pages}}
+        </div>
+        {{/if}}
+        {{#if volumeInfo.publisher}}
+        <div dir="ltr">
+          Publisher: {{volumeInfo.publisher}}</div>
+        {{/if}}
+        {{#if volumeInfo.industryIdentifiers}}
+          {{#each isbn in volumeInfo.industryIdentifiers}}
+          <div dir="ltr">
+            {{isbn.type}}: {{isbn.identifier}}
+          </div>
+          {{/each}}
+        {{/if}}
+        {{#if path}}
+          <button  class="btn btn-primary"  {{action openPdf volumeInfo }}>Open Book</button >
+        {{/if}}
+          <button  class="btn btn-primary" {{action "cancel"}}>Back</button >
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+{{#if files}}
+<form action="processFilesTemplate_submit" method="get" accept-charset="utf-8">
+  <table class="table table-hover table-bordered">
+    <caption>Files Process</caption>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>File Name</th>
+        <th>Size</th>
+        <th>Status</th>
+        {{#if file.isIdenticating}}
+          <th>Identification Result</th>
+        {{/if}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#each file in files}}
+      <tr>
+        <td>{{file.index}}</td>
+        <td>{{file.name}}</td>
+        <td>{{file.size}}</td>
+        <td>
+          
+            {{#if file.isUploadComplete}}
+             <div><span class="label label-info">done!</span></div>
+            {{else}}  
+             {{#with  file}}
+              <div class="progress progress-striped active">
+                <div class="bar" {{bindStyle width="uploaded" width-unit="%"}}></div>
+              </div>
+              {{/with}}
+            {{/if}}  
+
+        </td>
+        
+        {{#if file.identificateError}}
+          <td><div><span class="label label-info">{{file.error.errorType}}</span></div></td> 
+        {{else}}
+         {{#if file.isSaved}}
+           <td><div><span class="label label-info">{{file.error.errorType}}</span></div></td> 
+         {{/if}}
+        {{/if}}
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <div class="btn-toolbar" style="margin: 0;">
+      <button class="btn btn-primary" type="button" {{action "uploadToServer"}}>Process</button>
+      <button class="btn btn-danger " type="button" {{action "clearListFile"}}>Clear List</button>
+  </div>
+</form>
+{{/if}}

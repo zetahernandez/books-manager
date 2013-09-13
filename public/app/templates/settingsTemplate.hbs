@@ -1,0 +1,25 @@
+<section id="section">
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    {{outlet header}} 
+  </div>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span2">
+        <div class="">
+          <ul class="nav nav-tabs nav-stacked">
+                  <li>{{#linkTo 'settings.general'}}<i class="icon-cog"></i> General{{/linkTo}}</li>
+                  <li>{{#linkTo 'settings.upload'}}<i class="icon-book"></i> Upload Books{{/linkTo}}</li>
+            </ul>
+          </div>
+      </div>
+      <div  class="span10">
+        {{outlet settingContent}}
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+      <div class="container">
+        <p class="muted credit text-center">Courtesy of <a href="mailto:zetahernandez@gmail.com">Zeta</a></p>
+      </div>
+    </div>
+</section>
