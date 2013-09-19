@@ -1,18 +1,14 @@
 BooksManager.Router.map(function () {
-
-  this.resource('volumes', {
-      path: '/'
-    },
-
-    function () {
-      this.route('search', {
-        path: '/volumes/search'
-      });
-      this.route('detail', {
-        path: "/volumes/:volume_id"
-      });
-
+  this.resource('dashboard', {path: '/dashboard'}, function () {
+    this.resource('volumes', {path: '/volumes'}, function () {
+      this.route('home', {path: '/home'});
+      this.route('categories', {path: '/categories'});
     });
+    this.resource('search', {path: '/search'}, function () {
+      this.route('volumes', {path: '/volumes'});
+      this.route('authors', {path: '/authors'});
+    });
+  });
   this.resource('settings', function () {
     this.route('general');
     this.route('upload');
