@@ -4,4 +4,6 @@ dist
 .sass-cache
 .tmp
 app/bower_components
+
 user.rb
+.vagrant

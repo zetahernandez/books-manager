@@ -47,7 +47,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-	config.vm.define 'admin-master' do |config|
+	config.vm.define 'books-manager' do |config|
 		config.vm.box = $box
 		config.vm.box_url = $box_url
 		config.vm.network :forwarded_port, id: 'ssh', guest: 22, host: 2226
