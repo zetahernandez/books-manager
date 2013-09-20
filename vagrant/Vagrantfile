@@ -1,0 +1,77 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+###############################################################################
+# This is a single shared Vagrantfile that is used by all the members         #
+# of the development team. User-specific settings are loaded from the         #
+# file user.rb which override the default values set in this file.            #
+###############################################################################
+
+#############################################################################
+# DEFAULT PROPERTY VALUES
+# Set default values of properties that are used throughout the Vagrant and
+# Chef configuration processes.
+# These properties can be overridden by the individual developer.
+#############################################################################
+
+# The Vagrant box to use for the VM. The box corresponds to a specific Linux
+# distribution.
+
+# location of the commons repo on the host machine (your computer)
+$repo = '/usr/local/repo'
+
+# This is Ubuntu 12.04.3 LTS (Precise Pangolin) 64-bit built with the
+# necessary software added for Vagrant. Guest Additions 4.2.12 is installed.
+$box = ''
+
+# If the selected box is not yet loaded in Vagrant, Vagrant will
+# automatically retrieve that box from this URL and load it.
+$box_url = ''
+
+# Allow you change the provisioning path
+# See https://github.com/mitchellh/vagrant/blob/master/plugins/provisioners/chef/provisioner/base.rb
+$provisioning_path = nil
+
+#############################################################################
+# USER PROPERTY VALUES
+# Override any (or none) of the above properties with values for the current
+# user. The file user.rb is ignored by hg; it only exists locally on each
+# workstation. That makes it safer to put sensitive information like
+# passwords in it.
+# Use the file user-template.rb as a starting point to create user.rb.
+#############################################################################
+load 'user.rb'
+
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+	config.vm.define 'books-manager' do |config|
+		config.vm.box = $box
+		config.vm.box_url = $box_url
+		config.vm.network :forwarded_port, id: 'ssh', guest: 22, host: 2226
+		config.vm.network :private_network, ip: "44.44.44.2"
+		config.vm.synced_folder $repo, '/usr/local/repo'
+
+		config.vm.provider :virtualbox do |vb|
+			vb.name = 'Books Manager Server'
+			# vb.gui = true
+
+			vb.customize [
+			"modifyvm", :id,
+				"--memory", "128"
+			]
+		end
+
+		config.vm.provision :chef_solo do |chef|
+			chef.cookbooks_path = 'cookbooks'
+			chef.roles_path     = 'roles'
+			chef.log_level      = :debug
+			chef.provisioning_path = $provisioning_path
+
+			chef.add_role 'vagrant-books-manager'
+		end
+	end
+
+end
