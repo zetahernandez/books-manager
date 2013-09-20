@@ -1,23 +1,25 @@
-<div class="navbar">
+<div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
-    <div class="container-fluid">
-      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="brand" href="#">BOOKS</a>
-      <div class="nav-collapses">
-        <ul class="nav">
-          <li class="active">{{#linkTo volumes}}Home{{/linkTo}}</li>
-          <li><a>About</a></li>
-          <li>{{#linkTo settings}}Settings{{/linkTo}}</li>
-          <li> 
-            <div class="navbar-form pull-right">
+    <div class="container">
+      <div class="container-fluid">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="brand" href="#">BOOKS</a>
+        <div class="nav-collapses">
+          <ul class="nav">
+            <li class="active">{{#linkTo volumes}}Home{{/linkTo}}</li>
+            <li><a>About</a></li>
+            <li>{{#linkTo settings}}Settings{{/linkTo}}</li>
+            <li> 
+              <div class="navbar-form pull-right">
                 {{view BooksManager.SearchVolumeView placeholder="search"}}
-            </div>  
-           </li>
-        </ul>
+              </div>  
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
