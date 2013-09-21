@@ -1,11 +1,9 @@
 {{#view BooksManager.VolumesView}}
 <div class="container">
-  <div class="span12 pagination-centered">
     <ul class="nav nav-tabs">
       <li><a href="#" data-tab="home" {{action selectTab "home"}}>Home</a></li>
       <li><a href="#" data-tab="categories" {{action selectTab "categories"}}>Categories</a></li>
     </ul>
     {{outlet}}
-  </div>
 </div>
 {{/view}}

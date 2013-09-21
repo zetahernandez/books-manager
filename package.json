@@ -1,6 +1,32 @@
 {
   "name": "books-manager",
-  "version": "0.0.0",
+  "version": "0.0.0-2",
+  "author": {
+    "name": "zeta",
+    "email": "zetahernandez@gmail.com"
+  },
+  "description": "A Manager for digital bookshelves",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zetahernandez/books-manager.git"
+  },
+  "keywords": [
+    "books",
+    "it-books",
+    "bookshelves",
+    "book"
+  ],
+  "homepage": "http://github.com/zetahernandez/books-manager",
+  "scripts": {
+    "start": "node ./lib/server.js"
+  },
+  "contributors": [
+    {
+      "name": "gingrassia",
+      "email": "gingrassia@gmail.com"
+    }
+  ],
   "dependencies": {
     "express": "~3.3.4",
     "mongodb": "~1.3.18",
@@ -34,5 +60,6 @@
   },
   "engines": {
     "node": ">=0.8.0"
-  }
+  },
+  "subdomain": "books-manager"
 }

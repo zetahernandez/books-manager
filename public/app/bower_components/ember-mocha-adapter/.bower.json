@@ -20,5 +20,6 @@
     "commit": "fad3fbe6a568ab8f7308e161a584869ecd2c76ee"
   },
   "_source": "git://github.com/teddyzeenny/ember-mocha-adapter.git",
-  "_target": "0.1.1"
+  "_target": "0.1.1",
+  "_originalSource": "ember-mocha-adapter"
 }
