@@ -8,9 +8,9 @@ books-mananger
 * `npm install -g grunt-contrib-compass` see [grunt-contrib-compass](https://github.com/gruntjs/grunt-contrib-compass) to correct installation
 * Ruby
 
-You should have one path each for:
+You should install this gems
 
-  `which ruby && which compass`
+  `gem update --system && gem install compass`
   
 ## Usage
 
