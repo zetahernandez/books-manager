@@ -1,5 +1,4 @@
 BooksManager.VolumesView = Ember.View.extend(Ember.ViewTargetActionSupport, {
-  tagName: 'form',
   /**
    * Observes in VolumesController the propery activeTab 
    * when it change then we call the method to set active Tab
