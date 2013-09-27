@@ -1,6 +1,8 @@
- <img {{bindAttr src="view.content.volumeInfo.imageLinks.thumbnail"}} alt="" with="100" height="100"/>
- {{log view.content.volumeInfo.imageLinks}}
- <div class="">
-   <p>{{view.content.volumeInfo.title}}</p>
-   {{!--  <p>{{view.content.volumeInfo.description}}</p> --}}
- </div>
+ <div class="img-container"> 
+  <img {{bindAttr src="view.content.volumeInfo.imageLinks.thumbnail"}} alt="" width="100px" height="135px"/>
+</div>
+{{log view.content.volumeInfo.imageLinks}}
+<div class="">
+ <a class="carousel-botom-label" data-toggle="tooltip" title="" {{bind-attr  data-original-title=view.content.volumeInfo.title}}>{{view.content.volumeInfo.title}}</a>
+ 
+</div>

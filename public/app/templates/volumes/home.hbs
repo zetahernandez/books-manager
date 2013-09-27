@@ -1,2 +1,9 @@
-<div>Tab content home</div>
-{{view BooksManager.CarouselView contentBinding="controller.model"}}
+
+<div class="container tab-content">
+  
+  {{view BooksManager.CarouselView contentBinding="controller.model" title="Last Uploaded"}}
+  
+  {{view BooksManager.CarouselView contentBinding="controller.model" title="Most Readed"}}
+  
+  {{view BooksManager.CarouselView contentBinding="controller.model" title="Recommended"}}
+</div>

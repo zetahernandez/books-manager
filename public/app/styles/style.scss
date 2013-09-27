@@ -7,3 +7,40 @@ body {
   padding-top: 60px;
   padding-bottom: 40px;
 }
+.application{
+
+}
+.jcarousel-list {
+  height: 175px;
+}
+.img-container {
+  border: 1px solid #AAAAAA;
+  height: 137px;
+  width: 102px;
+}
+.carousel-botom-label {
+  color: #F77F00;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: bold;
+  height: 22px;
+  line-height: 22px;
+  margin-top: 5px;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: text-top;
+  white-space: nowrap;
+  width: auto;
+}
+.section-title {
+    font-size: 18px;
+    line-height: 20px;
+}
+.tab-content{
+  border: 1px solid #DDDDDD;
+  border-top: none;
+}
+.carousel-section {
+  border-bottom: 1px solid #DDDDDD;
+}
