@@ -49,6 +49,7 @@ module.exports = function (grunt) {
           middleware: function (connect) {
             return [
               mountFolder(connect, 'public/.tmp'),
+              mountFolder(connect, 'public/app/bower_components'),
               mountFolder(connect, 'public/test')
             ];
           }
@@ -162,7 +163,7 @@ module.exports = function (grunt) {
         javascriptsDir: '<%= yeoman.app %>/scripts',
         fontsDir: '<%= yeoman.app %>/styles/fonts',
         importPath: 'public/app/bower_components',
-        httpImagesPath: 'public/images',
+        httpImagesPath: '<%= yeoman.app %>/images',
         httpGeneratedImagesPath: 'public/images/generated',
         httpFontsPath: 'public/styles/fonts',
         relativeAssets: false

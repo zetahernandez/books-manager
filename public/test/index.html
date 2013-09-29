@@ -12,12 +12,18 @@
     <!-- assertion framework -->
     <script src="lib/chai.js"></script>
     <script>var expect = chai.expect</script>
-
+    <script>var should = chai.should()</script>
     <!-- include source files here... -->
-
-    <!-- include spec files here... -->
+    <script src="jquery/jquery.js"></script>
+    <script src="handlebars/handlebars.runtime.js"></script>
+    <script src="ember/ember-1.0.0.js"></script>
+    <script src="jcarousel/lib/jquery.jcarousel.js"></script>
+    <script src="scripts/compiled-templates.js"></script>  
+    <script src="scripts/combined-scripts.js"></script>
+    
     <script src="spec/test.js"></script>
-
+    <script>mocha.setup({globals: ['hasCert']})</script>
     <script>mocha.run()</script>
+    
 </body>
 </html>
