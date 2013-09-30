@@ -24,10 +24,19 @@ BooksManager.CarouselView = Ember.View.extend({
       // classNameBindings: ['content.isActive:active'],
       templateName: 'carousel-item',
       didInsertElement: function () {
+        //Add tooltip to tile
         this.$('a[data-toggle="tooltip"]').tooltip({
           placement: 'auto bottom'
         });
-      },
+        //Add popover in image component
+        this.$('img[data-toggle="popover"]').popover({
+          placement: 'auto top',
+          trigger: 'manual',
+          title: 'hola',
+          content: 'hola',
+          container : '.forpopover'
+        });
+      }
     })
   })
 });
