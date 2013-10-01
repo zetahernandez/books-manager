@@ -3,5 +3,7 @@
 </div>
 {{!-- {{log view.content.volumeInfo.imageLinks}} --}}
 <div>
- <a class="carousel-botom-label" data-toggle="tooltip" title="" {{bind-attr data-original-title=view.content.volumeInfo.title}}>{{view.content.volumeInfo.title}}</a>
+ <a class="carousel-botom-label" {{bind-attr data-original-title=view.content.volumeInfo.title}} data-toggle="tooltip" title="">{{view.content.volumeInfo.title}}</a>
 </div>
+
+{{!-- view BooksManager.Popover title="lala" parentSelector="img[data-toggle='popover']" popoverTemplate="book-popover"--}}

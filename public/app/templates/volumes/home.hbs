@@ -1,9 +1,10 @@
 
 <div class="container tab-content">
   
-  {{view BooksManager.CarouselView contentBinding="controller.model" title="Last Uploaded"}}
+  {{view BooksManager.CarouselView contentBinding="controller.model" title="Last Uploaded" carouselItemViewClass="BooksManager.VolumeCarouselItem"}}
   
-  {{view BooksManager.CarouselView contentBinding="controller.model" title="Most Readed"}}
+  {{view BooksManager.CarouselView contentBinding="controller.model" title="Most Readed" carouselItemViewClass="BooksManager.VolumeCarouselItem"}}
   
-  {{view BooksManager.CarouselView contentBinding="controller.model" title="Recommended"}}
+  {{view BooksManager.CarouselView contentBinding="controller.model" title="Recommended" carouselItemViewClass="BooksManager.VolumeCarouselItem"}}
 </div>
+<div class="forpopover"></div>
