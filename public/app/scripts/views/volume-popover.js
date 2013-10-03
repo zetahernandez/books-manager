@@ -3,9 +3,6 @@ BooksManager.VolumePopoverView = Ember.View.extend({
   classNames: ["popover-element"],
 
   didInsertElement: function () {
-
     console.log("asdf");
-
   }
-
 });

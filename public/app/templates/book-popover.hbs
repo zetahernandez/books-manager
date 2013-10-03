@@ -1,4 +1,14 @@
 <div id="popover-content">
-  {{log view.content}}
-    <a href="">{{view.content.volumeInfo.description}}</a>
+ <dl class="dl-vertical">
+  <dt class="text-muted">Authors</dt><dd>{{view.content.volumeInfo.authors}}</dd>
+  <dt class="text-muted">Publisher</dt><dd>{{view.content.volumeInfo.publisher}}</dd>
+  {{#if view.content.volumeInfo.publishedDate}}
+  <dt class="text-muted">Publish Date</dt><dd>{{dateFormat view.content.volumeInfo.publishedDate}}<dd/>
+  {{/if}}
+  <dt class="text-muted">Pages</dt><dd>{{view.content.volumeInfo.pageCount}}</dd>
+
+  {{#linkTo}}See Details!{{/linkTo}}
+  {{#linkTo}}Read it!{{/linkTo}}
+  {{#linkTo}}Add To Favorites{{/linkTo}}
+</dl>
 </div>

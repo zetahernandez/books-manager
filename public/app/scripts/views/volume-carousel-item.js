@@ -10,13 +10,12 @@ BooksManager.VolumeCarouselItem = Ember.View.extend({
     this.$('a[data-toggle="tooltip"]').tooltip({
       placement: 'auto bottom'
     });
-    //Add popover in image component
     var _self = this;
-    this.volumePopover = this.$('img[data-toggle="popover"]').popover({
+    this.$('img[data-toggle="popover"]').clickover({
       html: true,
-      placement: 'auto top',
-      trigger: 'manual',
-      title: 'hola',
+      placement: 'left auto',
+      title: '<strong>' + _self.content.volumeInfo.title + '</strong>',
+      global_close: true,
       content: function () {
 
         var popoverView = BooksManager.VolumePopoverView.create({
@@ -26,16 +25,13 @@ BooksManager.VolumeCarouselItem = Ember.View.extend({
         //hack to return the html for view
         return instance.renderToBuffer().string();
       },
-      container: '.forpopover'
+      container: '.popover-container'
     });
   },
 
   eventManager: Ember.Object.create({
     mouseEnter: function (event, view) {
-      view.volumePopover.popover('show');
-    },
-    mouseEnter: function (event, view) {
-      view.volumePopover.popover('show');
+
     }
   })
 });

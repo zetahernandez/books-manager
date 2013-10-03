@@ -1,9 +1,9 @@
 node_modules
 temp
 dist
-.sass-cache
-.tmp
 app/bower_components
+.tmp
+.sass-cache
 user.rb
 .vagrant
 .DS_Store
