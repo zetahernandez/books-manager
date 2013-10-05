@@ -11,7 +11,7 @@ BooksManager.VolumeCarouselItem = Ember.View.extend({
       placement: 'auto bottom'
     });
     var _self = this;
-    this.$('img[data-toggle="popover"]').clickover({
+    this.$('div[data-toggle="popover"]').clickover({
       html: true,
       placement: 'left auto',
       title: '<strong>' + _self.content.volumeInfo.title + '</strong>',
@@ -31,7 +31,10 @@ BooksManager.VolumeCarouselItem = Ember.View.extend({
 
   eventManager: Ember.Object.create({
     mouseEnter: function (event, view) {
-
+      view.$('div[data-toggle="popover"]').css('display', 'block');
+    },
+    mouseLeave: function(event, view) {
+      view.$('div[data-toggle="popover"]').css('display', 'none');
     }
   })
 });

@@ -1,7 +1,7 @@
  <div class="img-container"> 
-  <img {{bindAttr src="view.content.volumeInfo.imageLinks.thumbnail"}}  data-toggle="popover" alt="" width="100px" height="135px"/>
+  <img {{bindAttr src="view.content.volumeInfo.imageLinks.thumbnail"}}  alt="" width="100px" height="135px"/>
 </div>
-{{!-- {{log view.content.volumeInfo.imageLinks}} --}}
+<div class="actions primary" data-toggle="popover"><a data-volume-id="7400568" class="btn read"></a></div>
 <div>
  <a class="carousel-botom-label" {{bind-attr data-original-title=view.content.volumeInfo.title}} data-toggle="tooltip" title="">{{view.content.volumeInfo.title}}</a>
 </div>

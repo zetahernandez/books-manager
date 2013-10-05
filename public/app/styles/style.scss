@@ -45,3 +45,18 @@ body {
 .carousel-section {
   border-bottom: 1px solid #DDDDDD;
 }
+
+.actions.primary {
+  display: none;
+  height: 60px;
+  margin-left: 20px;
+  position: absolute;
+  top: 44px;
+}
+
+.btn.read {
+  background: url("../images/read.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+  height: 60px;
+  left: 0;
+  width: 60px;
+}
