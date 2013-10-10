@@ -2,7 +2,7 @@ BooksManager.VolumeCarouselItem = Ember.View.extend({
   tagName: 'li',
   classNames: ['jcarousel-item'],
   // classNameBindings: ['content.isActive:active'],
-  templateName: 'carousel-item',
+  templateName: 'carousel_item',
   volumePopover: null,
 
   didInsertElement: function () {

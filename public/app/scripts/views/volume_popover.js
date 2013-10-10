@@ -1,5 +1,5 @@
 BooksManager.VolumePopoverView = Ember.View.extend({
-  templateName: 'book-popover',
+  templateName: 'book_popover',
   classNames: ["popover-element"],
 
   didInsertElement: function () {

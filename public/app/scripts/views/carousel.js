@@ -1,6 +1,6 @@
 BooksManager.CarouselView = Ember.View.extend({
   templateName: 'carousel',
-  layoutName: 'carousel-layout',
+  layoutName: 'carousel_layout',
   classNames: ['carousel'],
   carouselItemViewClass: null,
   init: function () {

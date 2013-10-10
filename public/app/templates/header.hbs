@@ -31,7 +31,7 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
+        <li><a href="#" {{action showLoginModal target="controllers.login"}}>Sign In</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -45,3 +45,7 @@
     </div><!-- /.navbar-collapse -->
   </div>
 </nav>
+{{#if controllers.login.showLogin}}
+  {{log controllers.login.showLogin}}
+  {{view BooksManager.LoginModalView controllerBinding="controllers.login"}}
+{{/if}}

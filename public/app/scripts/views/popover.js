@@ -1,9 +1,9 @@
 BooksManager.PopoverConteinerView = Ember.View.extend({
-  classNames: ["popover-container"],
+  classNames: ["popover_container"],
 
 
   didInsertElement: function () {
-    console.log("PopoverConteinerView");
+   
   },
   eventManager: Ember.Object.create({
     // mouseLeave: function (event, view) {

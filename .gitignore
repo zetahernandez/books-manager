@@ -7,3 +7,5 @@ app/bower_components
 user.rb
 .vagrant
 .DS_Store
+public/app/bower_components/ember-addons.bs_for_ember/
+
