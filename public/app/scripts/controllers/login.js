@@ -1,5 +1,7 @@
 BooksManager.LoginController = Ember.ObjectController.extend({
   show: false,
+  email: null,
+  password: null,
   /**
    * computed property used in header_template to show or hide modal
    *
@@ -22,13 +24,21 @@ BooksManager.LoginController = Ember.ObjectController.extend({
      * @return undefined
      */
     signIn: function () {
-
-      Ember.$.post('/api/auth/login', {
-        email: 'zetahernandez@gmail.com',
-        password: '123456'
-      }).then(function (json, textStatus) {
-        console.log(json);
+      var _self = this;
+      BooksManager.auth.signIn(this.get('email'), this.get('password')).then(function (result) {
+        //When done
+        if (result) {
+          console.log(result);
+          Ember.$('#myModal').modal('hide');
+        } else {
+          console.log('show error');
+        }
       });
+
+    },
+    closeLogin: function (e) {
+      console.log(e);
+      this.set('show', false);
     }
   }
 });
