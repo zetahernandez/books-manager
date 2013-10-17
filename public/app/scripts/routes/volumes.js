@@ -20,6 +20,10 @@ BooksManager.VolumesRoute = Ember.Route.extend({
     selectTab: function(name) {
        this.controllerFor('volumes').set('activeTab', name);
        this.transitionTo('volumes.' + name);
+    },
+
+    signUp: function() {
+      this.controllerFor('login').send('showSignUp');
     }
   }
 });

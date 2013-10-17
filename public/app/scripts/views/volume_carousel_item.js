@@ -17,7 +17,7 @@ BooksManager.VolumeCarouselItem = Ember.View.extend({
       title: '<strong>' + _self.content.volumeInfo.title + '</strong>',
       global_close: true,
       content: function () {
-
+        _self.removeAllChildren();
         var popoverView = BooksManager.VolumePopoverView.create({
           content: _self.content
         }),
@@ -28,12 +28,16 @@ BooksManager.VolumeCarouselItem = Ember.View.extend({
       container: '.popover-container'
     });
   },
+  willDestroyElement: function () {
+    this.removeAllChildren();
+    this.destroy();
+  },
 
   eventManager: Ember.Object.create({
     mouseEnter: function (event, view) {
       view.$('div[data-toggle="popover"]').css('display', 'block');
     },
-    mouseLeave: function(event, view) {
+    mouseLeave: function (event, view) {
       view.$('div[data-toggle="popover"]').css('display', 'none');
     }
   })

@@ -13,11 +13,28 @@ BooksManager.Authentication = Ember.Object.extend({
 
   signIn: function (email, password) {
     var _self = this;
-    return Ember.$.post('/api/auth/login', {
+    return Ember.$.post('/api/auth/signIn', {
       email: email,
       password: password
     }).then(function (response, textStatus) {
       if (!response.name || response.name === 'BadRequestError') {
+        return false;
+      } else {
+        _self.set('user', BooksManager.User.create(response));
+        return true;
+      }
+
+    });
+  },
+  signUp: function (email, password, username, name) {
+    var _self = this;
+    return Ember.$.post('/api/auth/signUp', {
+      email: email,
+      password: password,
+      username: username,
+      name: name
+    }).then(function (response, textStatus) {
+      if (!response.name || response.name === 'BadRequestError' || response.name === 'ValidationError') {
         return false;
       } else {
         _self.set('user', BooksManager.User.create(response));
