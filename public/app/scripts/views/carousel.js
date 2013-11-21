@@ -3,7 +3,7 @@ BooksManager.CarouselView = Ember.View.extend({
   layoutName: 'carousel_layout',
   classNames: ['carousel'],
   carouselItemViewClass: null,
-  init: function () {
+  init: function() {
     this._super.apply(this, arguments);
     var obj = this.get('content.firstObject');
     // Ember.set(obj, 'isActive', true);
@@ -11,7 +11,7 @@ BooksManager.CarouselView = Ember.View.extend({
   actions: {
 
   },
-  didInsertElement: function () {
+  didInsertElement: function() {
     this.$('.jcarousel-skin-tango').jcarousel();
   },
   itemsView: Ember.CollectionView.extend({
