@@ -1,4 +1,4 @@
-BooksManager.VolumesIndexRoute = Ember.Route.extend({
+BooksManager.VolumesIndexRoute = BooksManager.Route.extend({
   redirect: function () {
     this.transitionTo('home');
   },

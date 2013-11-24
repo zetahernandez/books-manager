@@ -1,4 +1,4 @@
-BooksManager.IndexRoute = Ember.Route.extend({
+BooksManager.IndexRoute = BooksManager.Route.extend({
   /**
    * When redirect a Route not render template
    * @return {[type]} [description]

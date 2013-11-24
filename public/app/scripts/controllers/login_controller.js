@@ -1,28 +1,13 @@
 BooksManager.LoginController = Ember.ObjectController.extend({
-  show: false,
-  isSignUp: false,
   email: null,
   password: null,
   confirmPassword: null,
   username: null,
   name: null,
-  /**
-   * computed property used in header_template to show or hide modal
-   *
-   * @return undefined
-   */
-  showLogin: function () {
-    return this.get('show');
-  }.property('show'),
+
 
   actions: {
-    /**
-     * action used in header_template to change state of show property
-     * @return undefined
-     */
-    showLoginModal: function () {
-      this.set('show', true);
-    },
+
 
     showSignUp: function () {
       this.set('isSignUp', true);

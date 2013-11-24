@@ -1,4 +1,4 @@
-BooksManager.VolumesRoute = Ember.Route.extend({
+BooksManager.VolumesRoute = BooksManager.Route.extend({
   
   setupController: function(controller) {
     //The first time the active tab is home
@@ -20,10 +20,6 @@ BooksManager.VolumesRoute = Ember.Route.extend({
     selectTab: function(name) {
        this.controllerFor('volumes').set('activeTab', name);
        this.transitionTo('volumes.' + name);
-    },
-
-    signUp: function() {
-      this.controllerFor('login').send('showSignUp');
     }
   }
 });
