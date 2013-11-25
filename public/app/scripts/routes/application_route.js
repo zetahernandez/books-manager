@@ -8,8 +8,8 @@ BooksManager.ApplicationRoute = Ember.Route.extend({
       BooksManager.Route.showModal(this, 'login');
     },
 
-    signUp: function() {
-      BooksManager.Route.showModal(this,'signUp');
+    showCreateAccount: function() {
+      BooksManager.Route.showModal(this,'createAccount');
     },
     /**
 

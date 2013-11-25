@@ -1,13 +1,11 @@
 <div class="modal-body">
-  <span id="myGoogleButton">
-
-  </span>       
+ <button class="btn btn-social google" {{action externalLogin 'google'}}>google</button> 
 
   <form role="form">
     {{#if isSignUp}}
     <div class="form-group">
       <label for="inputName">Name</label>
-      {{input id="inputName" type="text" value=name size="50" placeholder="Confirm Password" class="form-control"}}
+      {{input id="inputName" type="text" value=name size="50" placeholder="Confirm Name" class="form-control"}}
     </div>
     <div class="form-group">
       <label for="inputUsername">Username</label>
@@ -30,6 +28,7 @@
     </div>
     {{/if}}
   </form>
+  <a href="#" {{action showCreateAccount}}>Create Account</a>
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
