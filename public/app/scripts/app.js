@@ -14,8 +14,7 @@ var BooksManager = window.BooksManager = Ember.Application.create({
 		return u + url;
 	},
 	authComplete: function(state, user) {
-		console.log(state);
-		console.log(user);
+		this.send('loginComplete')
 	}
 });
 /* Order and include as you please. */

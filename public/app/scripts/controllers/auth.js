@@ -42,7 +42,13 @@ BooksManager.Authentication = Ember.Object.extend({
       }
 
     });
+  },
+
+  createCurrentUser: function(result) {
+    this.set('user', BooksManager.User.create(result));
   }
+
+
 });
 
 BooksManager.auth = BooksManager.Authentication.create();
