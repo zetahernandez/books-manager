@@ -10,13 +10,13 @@ VAGRANT CONFIG
 ## Usage
 
 * create user.rb file on vagrant folder
-* add this lines 
-  $box = 'precise64'
+* add this lines <code>
+    <pre>$box = 'precise64'
   $box_url = 'http://files.vagrantup.com/precise64.box'
-  $repo = 'path/to/books-manager'
-* open terminal go to /vagrant and run 'vagrant up' command 
+  $repo = 'path/to/books-manager'</pre></code>
+* open terminal go to /vagrant and run <code>vagrant up</code> command 
 * login on guest machine created with user vagrant pass vagrant
 * go to /usr/local/books-manager
-* run 'grunt server'
+* run <code>grunt server</code>
 
  
