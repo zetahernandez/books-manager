@@ -23,3 +23,4 @@ case node['platform_family']
 end
 
 include_recipe "nodejs::install_from_#{node['nodejs']['install_method']}"
+include_recipe "nodejs::npm"
