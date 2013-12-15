@@ -5,6 +5,11 @@ BooksManager.LoginController = Ember.ObjectController.extend({
   username: null,
   name: null,
 
+  authenticationComplete: function(state, user) {
+    BooksManager.auth.createCurrentUser(user);
+    this.send('hideModal');
+    this.transitionToRoute('myhome');
+  },
 
   actions: {
 
@@ -17,19 +22,19 @@ BooksManager.LoginController = Ember.ObjectController.extend({
       BooksManager.auth.signIn(this.get('email'), this.get('password')).then(function(result) {
         //When done
         if (result) {
-          //TODO: send hide to view
-          Ember.$('#myModal').modal('hide');
+          this.send('hideModal');
         } else {
           console.log('show error');
         }
       });
 
     },
+
     externalLogin: function(name) {
-      
-        window.open(BooksManager.getURL("/api/auth/" + name),"_blank",
-          "menubar=no,status=no");
-      
+
+      window.open(BooksManager.getURL("/api/auth/" + name), "_blank",
+        "menubar=no,status=no");
+
     },
 
     /**
@@ -41,14 +46,13 @@ BooksManager.LoginController = Ember.ObjectController.extend({
       BooksManager.auth.signUp(this.get('email'), this.get('password'), this.get('username'), this.get('name')).then(function(result) {
         //When done
         if (result) {
-          //TODO: send hide to view
-          Ember.$('#myModal').modal('hide');
+          this.send('hideModal');
         } else {
           //TODO: 
           console.log('show error');
         }
       });
 
-    },
+    }
   }
 });

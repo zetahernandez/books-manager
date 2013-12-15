@@ -14,7 +14,9 @@ var BooksManager = window.BooksManager = Ember.Application.create({
 		return u + url;
 	},
 	authComplete: function(state, user) {
-		this.send('loginComplete')
+		// TODO, how to dispatch this to the controller without the container?
+    var loginController = BooksManager.__container__.lookup('controller:login');
+    return loginController.authenticationComplete(state, user);
 	}
 });
 /* Order and include as you please. */

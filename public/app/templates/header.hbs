@@ -32,7 +32,7 @@
     </form>
     <ul class="nav navbar-nav navbar-right">
       {{#if BooksManager.auth.isAuthenticated}}
-      <li>{{#link-to 'myhome' model}}{{BooksManager.auth.user.name}}{{/link-to}}</li>
+      <li>{{#link-to 'myhome'}}{{BooksManager.auth.user.name}}{{/link-to}}</li>
       {{else}}
       <li><a href="#" {{action showLogin}}>Sign In</a></li>
       {{/if}}

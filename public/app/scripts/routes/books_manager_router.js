@@ -9,9 +9,17 @@ BooksManager.Router.map(function () {
       this.route('volumes', {path: '/volumes'});
       this.route('authors', {path: '/authors'});
     });
+    this.resource('upload', function () {
+      this.route('general');
+      this.route('upload');
+    });
+    this.resource('myhome', function () {
+    
+    });
   });
   this.resource('settings', function () {
     this.route('general');
     this.route('upload');
   });
+
 });
