@@ -1,4 +1,4 @@
-#
+	#
 # Cookbook Name:: nodejs
 # Attributes:: nodejs
 #
@@ -16,8 +16,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-default['fr_s3_resource_bucket'] = 'fluid-instantiation-resources'
 
 default['nodejs']['install_method'] = 'source'
 default['nodejs']['version'] = '0.10.21'
