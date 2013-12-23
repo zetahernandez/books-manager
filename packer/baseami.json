@@ -1,0 +1,24 @@
+{
+	"builders": [
+		{
+			"type": "amazon-ebs",
+			"region": "us-west-2",
+			"source_ami": "ami-927613a2",
+			"instance_type": "t1.micro",
+			"ssh_username": "ubuntu",
+			"ami_name": "books-manager",
+			"ami_regions": [ "us-west-2" ],
+			"ssh_timeout": "10m",
+			"security_group_ids": "launch-wizard-1",
+		 	"access_key": "AKIAJARF2SCUFGFCP2IQ",
+    	 	"secret_key": "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"
+  		}
+  	],
+
+	"provisioners": [
+		{
+			"type": "shell",
+			"script": "setup_things.sh"
+		}
+  	]
+}
