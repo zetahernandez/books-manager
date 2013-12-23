@@ -106,17 +106,15 @@ Vagrant.configure("2") do |config|
     config.vm.provider :aws do |aws, override|
       aws.access_key_id = $AWS_ACCESS_KEY_ID
       aws.secret_access_key = $AWS_SECRET_ACCESS_KEY
-      aws.keypair_name = "vagrant-us-west-2"
-#      aws.instance_ready_timeout = 500
       aws.security_groups = ['launch-wizard-1']
-      #aws.ssh_private_kesy_path = "~/.ssh/aws/vagrant.pem"
 
-   
-      aws.ami = "ami-801773b0"
+
+      aws.ami = "ami-e63a5dd6"
       aws.region="us-west-2"
       aws.instance_type = "t1.micro"
       override.ssh.username = "ubuntu"
-      override.ssh.private_key_path = "/Users/zeta/.ssh/aws/vagrant-us-west-2.pem"
+      override.ssh.private_key_path = $PRIVATE_KEY_PATH
+      aws.keypair_name = $KEYPAIR_NAME 
     end
   
     # Enable provisioning with chef solo, specifying a cookbooks path, roles
