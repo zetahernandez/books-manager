@@ -3,8 +3,7 @@
 #==================================================================================================
 #
 # This script can be run on a basic Canonical Ubuntu AMI to install the minimum software
-# required by Fluid Retail AMIs.  This speeds up provisioning a bit since less software needs
-# to be installed.
+# required. This speeds up provisioning a bit since less software needs to be installed.
 # 
 #==================================================================================================
 
@@ -42,8 +41,6 @@ sudo gem install chef --version '~> 10.28' --no-rdoc --no-ri --verbose
 sudo apt-get install -y libxslt-dev libxml2-dev
 
 sudo gem install aws-sdk --no-rdoc --no-ri --verbose
-
-
 
 # Create some directories for building chef-solo into.
 sudo mkdir -p /var/chef/cache
