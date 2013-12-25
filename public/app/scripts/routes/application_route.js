@@ -9,13 +9,13 @@ BooksManager.ApplicationRoute = Ember.Route.extend({
     },
 
     showCreateAccount: function() {
-      BooksManager.Route.showModal(this,'createAccount');
+      BooksManager.Route.showModal(this, 'createAccount');
     },
 
     loginComplete: function() {
       this.hideModal();
     },
-    
+
     /**
 
       Close the current modal, and destroy its state.
@@ -47,6 +47,6 @@ BooksManager.ApplicationRoute = Ember.Route.extend({
     **/
     showModal: function() {
       $('#booksmanager-modal').modal('show');
-    },
+    }
   }
 });
