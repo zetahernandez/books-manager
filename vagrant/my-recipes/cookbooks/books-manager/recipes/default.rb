@@ -14,11 +14,26 @@ if node[:disableIPv6]
 end
 
 include_recipe "books-manager::global-dependencies"
-# Do an npm rebuild for compiled dependencies.
 
+include_recipe "books-manager::git-clone"
+
+
+# Do an npm rebuild for compiled dependencies.
 #TODO: run npm install when node_modules not exist, otherwise run npm rebuild
 execute "Perform npm" do
   cwd "#{node[:basedir]}"
   command "npm install"
 end
 
+#Build Project
+execute "Build Project" do
+  cwd "#{node[:basedir]}"
+  only_if { node[:environment] == 'aws' }
+  command "grunt build"
+end
+
+execute "Starting server" do
+  cwd "#{node[:basedir]}"
+  only_if { node[:environment] == 'aws' }
+  command "NODE_ENV=production; forever start #{node[:basedir]}/lib/server.js"
+end

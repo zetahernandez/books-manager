@@ -9,5 +9,6 @@ run_list(
 
 default_attributes(
 	:basedir => "/usr/local/books-manager",
-	:environment => "vagrant"
+	:environment => "aws",
+	:repo => "https://github.com/zetahernandez/books-manager.git"
 )
