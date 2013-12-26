@@ -15,8 +15,9 @@ end
 
 include_recipe "books-manager::global-dependencies"
 
-include_recipe "books-manager::git-clone"
-
+if node[:environment] == 'aws' then
+  include_recipe "books-manager::git-clone"
+end  
 
 # Do an npm rebuild for compiled dependencies.
 #TODO: run npm install when node_modules not exist, otherwise run npm rebuild
