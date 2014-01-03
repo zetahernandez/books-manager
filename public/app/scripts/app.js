@@ -24,4 +24,5 @@ require('helpers/**/*');
 require('scripts/models/**/*');
 require('scripts/routes/**/*');
 require('scripts/controllers/**/*');
+require('scripts/views/mixin/*');
 require('scripts/views/**/*');

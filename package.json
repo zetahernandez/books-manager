@@ -39,7 +39,8 @@
     "passport-google-oauth": "~0.1.5",
     "passport-facebook": "~1.0.2",
     "passport-dropbox-oauth2": "0.0.9",
-    "dropbox": "~0.10.2"
+    "dropbox": "~0.10.2",
+    "socket.io": "~0.9.16"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
