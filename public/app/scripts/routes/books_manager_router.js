@@ -24,8 +24,6 @@ BooksManager.Router.map(function() {
       });
     });
     this.resource('upload', function() {
-      this.route('general');
-      this.route('upload');
     });
     this.resource('myhome', function() {
 
