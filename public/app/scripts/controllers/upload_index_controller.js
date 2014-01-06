@@ -33,12 +33,12 @@ BooksManager.UploadIndexController = Ember.ObjectController.extend({
       blocker: true,
       success: function(data, textStatus, xhr) {
         file.set('uploaded', 100);
-     //   file.set('uuid', data);
+        file.set('uuid', data);
         file.set('status', textStatus);
       },
       error: function(xhr, textStatus, errorThrown) {
         console.log(errorThrown);
-       // file.set('status', textStatus);
+        // file.set('status', textStatus);
       },
       xhr: function() { // custom xhr
         var myXhr = jQuery.ajaxSettings.xhr();
@@ -59,19 +59,41 @@ BooksManager.UploadIndexController = Ember.ObjectController.extend({
 
 
   },
+  identificate: function(uuids) {
+    
+    var socket = io.connect(window.location.origin);
+    
+    socket.on('news', function(data) {
+      console.log(data);
+      
+    });
+    socket.emit('identificate', {"uuids": uuids } ,function(data) {
+      console.log(data);
+    });
+  },
 
   actions: {
     /*
       Upload File to Server
   */
     uploadToServer: function() {
-      var _self = this;
+      var deferreds = [],
+        _self = this;
+      //create array of all ajax queries to upload     
       jQuery.each(this.get('files'), function(index, file) {
-        jQuery.when(_self.uploadFile(file)).then(function() {
-          console.log('uploaded');
-        }, function() {
-          console.log('fail');
+        deferreds.push(_self.uploadFile(file));
+      });
+      //wait for all functions ends
+      jQuery.when.apply(jQuery, deferreds).then(function(a, b, c) {
+        console.log('uploaded');
+        console.log(arguments);
+        var uuids = [];
+
+        jQuery.each(arguments, function(index, argument) {
+          uuids.push(argument[0]);
         });
+
+        _self.identificate(uuids);
       });
     },
 

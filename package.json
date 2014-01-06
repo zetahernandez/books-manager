@@ -40,7 +40,8 @@
     "passport-facebook": "~1.0.2",
     "passport-dropbox-oauth2": "0.0.9",
     "dropbox": "~0.10.2",
-    "socket.io": "~0.9.16"
+    "socket.io": "~0.9.16",
+    "node-uuid": "~1.4.1"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
