@@ -19,6 +19,13 @@ if node[:environment] == 'aws' then
   include_recipe "books-manager::git-clone"
 end  
 
+template "/etc/init/nodejs.conf" do
+  source "node.conf.erb"
+  owner "root"
+  group "root"
+  mode "0640"
+end
+
 # Do an npm rebuild for compiled dependencies.
 #TODO: run npm install when node_modules not exist, otherwise run npm rebuild
 execute "Perform npm" do
@@ -33,8 +40,19 @@ execute "Build Project" do
   command "grunt build"
 end
 
-execute "Starting server" do
-  cwd "#{node[:basedir]}"
-  only_if { node[:environment] == 'aws' }
-  command "NODE_ENV=production; forever start #{node[:basedir]}/lib/server.js"
+package "g++"
+package "authbind"
+
+bash "Configure authbind" do
+  code <<-EOF
+  touch /etc/authbind/byport/80
+  chmod 500 /etc/authbind/byport/80
+  chown ubuntu /etc/authbind/byport/80
+  touch /etc/authbind/byport/443
+  chmod 500 /etc/authbind/byport/443
+  chown ubuntu /etc/authbind/byport/443
+  EOF
+end
+execute "Starting Node" do
+  command "initctl start nodejs || initctl restart nodejs"
 end
