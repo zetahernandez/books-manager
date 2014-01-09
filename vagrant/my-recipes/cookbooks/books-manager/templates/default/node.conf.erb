@@ -1,0 +1,29 @@
+description "node.js server"
+author      "kvz - http://kevin.vanzonneveld.net"
+
+# used to be: start on startup
+# until we found some mounts weren't ready yet while booting:
+start on started mountall
+stop on shutdown
+
+# Automatically Respawn:
+respawn
+respawn limit 99 5
+
+script
+    # Not sure why $HOME is needed, but we found that it is:
+    #export HOME="/home/ubuntu/"
+<%
+	commandLine = "exec sudo -E -u ubuntu HOME='/home/ubuntu/' APP_ENV='#{node[:environment]}' "
+	commandLine += "SSL=#{node['nodejs.ssl']} PORT=#{node['nodejs.port']} "
+	commandLine += "DEBUG=#{node['nodejs.debuglog']} "
+	commandLine += "NODE_ENV=production "
+	commandLine += "authbind /usr/local/bin/node #{node[:basedir]}/lib/server.js >> /var/log/nodejs.log 2>&1"
+-%>
+  <%= commandLine %>
+end script
+
+post-start script
+   # Optionally put a script here that will notifiy you node has (re)started
+   # /root/bin/hoptoad.sh "node.js has started!"
+end script

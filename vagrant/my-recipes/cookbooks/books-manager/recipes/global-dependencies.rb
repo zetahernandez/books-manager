@@ -40,8 +40,3 @@ execute "Installing grunt-mocha" do
   not_if do ::File.exists?('/usr/local/lib/node_modules/grunt-mocha') end
 end
 
-execute "Installing Forever" do
-  command "npm install -g forever"
-  only_if { node[:environment] == 'aws' }
-  not_if do ::File.exists?('/usr/local/bin/forever') end
-end

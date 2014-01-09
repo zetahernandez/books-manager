@@ -10,5 +10,8 @@ run_list(
 default_attributes(
 	:basedir => "/usr/local/books-manager",
 	:environment => "aws",
-	:repo => "https://github.com/zetahernandez/books-manager.git"
+	:repo => "https://github.com/zetahernandez/books-manager.git",
+	"nodejs.apphost" => "0.0.0.0",
+	"nodejs.ssl" => "false",
+	"nodejs.port" => "9000",
 )
