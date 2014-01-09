@@ -13,5 +13,5 @@ default_attributes(
 	:repo => "https://github.com/zetahernandez/books-manager.git",
 	"nodejs.apphost" => "0.0.0.0",
 	"nodejs.ssl" => "false",
-	"nodejs.port" => "9000",
+	"nodejs.port" => "80",
 )
