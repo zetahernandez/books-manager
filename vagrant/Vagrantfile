@@ -131,7 +131,10 @@ Vagrant.configure("2") do |config|
       # You may also specify custom JSON attributes:
       chef.json = { :aws_access_key_id => $AWS_ACCESS_KEY_ID,
                     :aws_secret_access_key => $AWS_SECRET_ACCESS_KEY,
-                    :disableIPv6 => false }
+                    :aws_region => "us-west-2",
+                    :disableIPv6 => false,
+                    :dyndns_user => $DYNDNS_USER,
+                    :dyndns_pass => $DYNDNS_PASS }
     end
 
   

@@ -41,6 +41,7 @@ sudo gem install chef --version '~> 10.28' --no-rdoc --no-ri --verbose
 sudo apt-get install -y libxslt-dev libxml2-dev
 
 sudo gem install aws-sdk --no-rdoc --no-ri --verbose
+sudo gem install rest-client
 
 # Create some directories for building chef-solo into.
 sudo mkdir -p /var/chef/cache

@@ -14,10 +14,12 @@ script
     # Not sure why $HOME is needed, but we found that it is:
     #export HOME="/home/ubuntu/"
 <%
-	commandLine = "exec sudo -E -u ubuntu HOME='/home/ubuntu/' APP_ENV='#{node[:environment]}' "
+	commandLine = "exec sudo -E -u nodejs HOME='/home/nodejs/' APP_ENV='#{node[:environment]}' "
 	commandLine += "SSL=#{node['nodejs.ssl']} PORT=#{node['nodejs.port']} "
 	commandLine += "DEBUG=#{node['nodejs.debuglog']} "
-	commandLine += "NODE_ENV=production "
+	if(node[:environment] == 'aws'){
+		commandLine += "NODE_ENV=production "
+	}
 	commandLine += "authbind /usr/local/bin/node #{node[:basedir]}/lib/server.js >> /var/log/nodejs.log 2>&1"
 -%>
   <%= commandLine %>

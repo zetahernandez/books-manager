@@ -9,5 +9,8 @@ run_list(
 
 default_attributes(
 	:basedir => "/usr/local/books-manager",
-	:environment => "vagrant"
+	:environment => "vagrant",
+	"nodejs.apphost" => "localhost",
+	"nodejs.ssl" => "false",
+	"nodejs.port" => "9000"
 )
