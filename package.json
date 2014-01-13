@@ -43,7 +43,7 @@
     "socket.io": "~0.9.16",
     "node-uuid": "~1.4.1",
     "connect-mongo": "~0.4.0",
-    "connect-session-file": "~1.0.4"
+    "passport.socketio": "~2.2.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

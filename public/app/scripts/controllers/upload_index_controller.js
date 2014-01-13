@@ -2,7 +2,7 @@ BooksManager.UploadIndexController = Ember.ObjectController.extend({
   dropText: 'Drop Here',
   files: [],
   ignoredFiles: [],
-
+  socket: null,
 
   processFiles: function(files) {
     var _self = this;
@@ -18,6 +18,10 @@ BooksManager.UploadIndexController = Ember.ObjectController.extend({
           file: file
         }));
       }
+    });
+    socket = io.connect(window.location.origin);
+    socket.on('news', function(data) {
+      console.log(data);
     });
   },
 
@@ -45,7 +49,7 @@ BooksManager.UploadIndexController = Ember.ObjectController.extend({
         if (myXhr.upload) { // if upload property exists
           myXhr.upload.addEventListener('progress', function(progress) {
             if (progress.lengthComputable) {
-              //update progress 
+              console.log('uploaded: ' + Math.round((progress.loaded / progress.total) * 100));
               file.set('uploaded', Math.round((progress.loaded / progress.total) * 100));
             }
           }, false); // progressbar
@@ -59,15 +63,12 @@ BooksManager.UploadIndexController = Ember.ObjectController.extend({
 
 
   },
-  identificate: function(uuids) {
-    
-    var socket = io.connect(window.location.origin);
-    
-    socket.on('news', function(data) {
-      console.log(data);
-      
-    });
-    socket.emit('identificate', {"uuids": uuids } ,function(data) {
+
+  identificate: function(uuid) {
+    console.log('emit identificate uuid:'+ uuid);
+    socket.emit('identificate', {
+      "uuid": uuid
+    }, function(data) {
       console.log(data);
     });
   },
@@ -77,24 +78,19 @@ BooksManager.UploadIndexController = Ember.ObjectController.extend({
       Upload File to Server
   */
     uploadToServer: function() {
-      var deferreds = [],
-        _self = this;
+      var _self = this;
       //create array of all ajax queries to upload     
       jQuery.each(this.get('files'), function(index, file) {
-        deferreds.push(_self.uploadFile(file));
-      });
-      //wait for all functions ends
-      jQuery.when.apply(jQuery, deferreds).then(function(a, b, c) {
-        console.log('uploaded');
-        console.log(arguments);
-        var uuids = [];
+        //wait for all functions ends
+        jQuery.when(_self.uploadFile(file)).then(function() {
+          console.log('uploaded');
+          console.log(arguments);
 
-        jQuery.each(arguments, function(index, argument) {
-          uuids.push(argument[0]);
+          //obtain the uuid in the argument local variable
+          _self.identificate(arguments[0]);
         });
-
-        _self.identificate(uuids);
       });
+
     },
 
     clearListFile: function() {
