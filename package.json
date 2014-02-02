@@ -39,11 +39,11 @@
     "passport-google-oauth": "~0.1.5",
     "passport-facebook": "~1.0.2",
     "passport-dropbox-oauth2": "0.0.9",
-    "dropbox": "~0.10.2",
     "socket.io": "~0.9.16",
     "node-uuid": "~1.4.1",
     "connect-mongo": "~0.4.0",
-    "passport.socketio": "~2.2.0"
+    "passport.socketio": "~2.2.0",
+    "dbox": "~0.6.3"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
