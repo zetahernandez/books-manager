@@ -14,3 +14,6 @@ default_attributes(
 	"nodejs.ssl" => "false",
 	"nodejs.port" => "9000"
 )
+override_attributes(
+	:mongodb => { :enable_rest => true }
+)
