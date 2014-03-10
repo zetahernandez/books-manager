@@ -17,10 +17,11 @@ script
 	commandLine = "exec sudo -E -u nodejs HOME='/home/nodejs/' APP_ENV='#{node[:environment]}' "
 	commandLine += "SSL=#{node['nodejs.ssl']} PORT=#{node['nodejs.port']} "
 	commandLine += "DEBUG=#{node['nodejs.debuglog']} "
-	if(node[:environment] == 'aws'){
+	
+	if node[:environment] == "aws"
 		commandLine += "NODE_ENV=production "
-	}
-	commandLine += "authbind /usr/local/bin/node #{node[:basedir]}/lib/server.js >> /var/log/nodejs.log 2>&1"
+	end
+	commandLine += "authbind /usr/local/bin/node #{node[:basedir]}/lib/cluster.js >> /var/log/nodejs.log 2>&1"
 -%>
   <%= commandLine %>
 end script

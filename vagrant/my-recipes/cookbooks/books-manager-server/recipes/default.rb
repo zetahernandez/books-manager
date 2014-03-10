@@ -13,10 +13,10 @@ if node[:disableIPv6]
    end
 end
 
-include_recipe "books-manager::global-dependencies"
+include_recipe "books-manager-server::global-dependencies"
 
 if node[:environment] == 'aws' then
-  include_recipe "books-manager::git-clone"
+  include_recipe "books-manager-server::git-clone"
   
   ruby_block "Setup AWS and DYNDNS" do
     block do
@@ -31,7 +31,7 @@ if node[:environment] == 'aws' then
       #Update the ip_adress on dyndns
       RestClient.get  "http://#{node[:dyndns_user]}:#{node[:dyndns_pass]}@members.dyndns.org/nic/update", {:params => {'hostname' => 'books-manager.dnsalias.org', 'myip' => ip_adress, 'wildcard' => 'NOCHG' }}
 
-      instance.add_tag("Type", :value => "books-manager server")
+      instance.add_tag("Type", :value => "books-manager-server")
       instance.add_tag("Created", :value => DateTime.now)
     end
   end

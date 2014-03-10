@@ -60,6 +60,8 @@ Vagrant.configure("2") do |config|
     
       # Use VBoxManage to customize the VM. For example to change memory:
       vb.customize ["modifyvm", :id, "--memory", "1024"]
+      vb.customize ["modifyvm", :id, "--cpus", "4"]  
+      vb.customize ["modifyvm", :id, "--ioapic", "on"]
     end
   
     # Enable provisioning with chef solo, specifying a cookbooks path, roles
@@ -91,7 +93,7 @@ Vagrant.configure("2") do |config|
     # Every Vagrant virtual environment requires a box to build off of.
     config.vm.box = "dummy"
  
-
+    config.vm.box_url = "https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box"
     
     # Create a public network, which generally matched to bridged network.
     # Bridged networks make the machine appear as another physical device on
@@ -138,7 +140,7 @@ Vagrant.configure("2") do |config|
     end
   end
 
-  config.vm.define 'books-manager-database' do |config|
+  config.vm.define 'books-manager-mongodb' do |config|
         # All Vagrant configuration is done here. The most common configuration
     # options are documented and commented below. For a complete reference,
     # please see the online documentation at vagrantup.com.
@@ -151,8 +153,8 @@ Vagrant.configure("2") do |config|
     config.vm.box_url = $box_url
 
     # Create a forwarded port mapping which allows access to a specific port
-    # within the machine from a port on the host machine. In the example below,
-    # accessing "localhost:8080" will access port 80 on the guest machine.
+    # within the machine from a port on the host machine. In the example beπlow,
+    # accessing "localhost:8080" will access port 80 on the guest machine.π
     # config.vm.network :forwarded_port, guest: 80, host: 8080
     config.vm.network :forwarded_port, id: 'ssh', guest: 22, host: 4441
     config.vm.network :forwarded_port, id: 'app', guest: 27017, host: 27017
@@ -170,7 +172,7 @@ Vagrant.configure("2") do |config|
     # the path on the host to the actual folder. The second argument is
     # the path on the guest to mount the folder. And the optional third
     # argument is a set of non-required options.
-    config.vm.synced_folder $repo, "/usr/local/books-manager"
+    # config.vm.synced_folder $repo, "/usr/local/books-manager"
 
     # Provider-specific configuration so you can fine-tune various
     # backing providers for Vagrant. These expose provider-specific options.
@@ -181,10 +183,12 @@ Vagrant.configure("2") do |config|
       vb.gui = false
 
       # VBox name
-      vb.name = "Books Manager Database"
+      vb.name = "Books Manager MongoDB"
     
       # Use VBoxManage to customize the VM. For example to change memory:
       vb.customize ["modifyvm", :id, "--memory", "768"]
+      vb.customize ["modifyvm", :id, "--cpus", "2"]  
+      vb.customize ["modifyvm", :id, "--ioapic", "on"]
     end
   
     # Enable provisioning with chef solo, specifying a cookbooks path, roles
@@ -196,7 +200,7 @@ Vagrant.configure("2") do |config|
       chef.roles_path = "my-recipes/roles"
       chef.data_bags_path = "my-recipes/data_bags"
       
-      chef.add_role "vagrant-books-manager-database"
+      chef.add_role "vagrant-books-manager-mongodb"
     
       # You may also specify custom JSON attributes:
       chef.json = { :aws_access_key_id => '',

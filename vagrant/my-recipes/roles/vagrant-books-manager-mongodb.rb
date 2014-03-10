@@ -4,7 +4,7 @@ description "Books Manager Vagrant Server Role"
 run_list(
 	"recipe[apt]",
 	"recipe[build-essential]",
-	"recipe[books-manager-database]"
+	"recipe[books-manager-mongodb]"
 )
 
 default_attributes(
