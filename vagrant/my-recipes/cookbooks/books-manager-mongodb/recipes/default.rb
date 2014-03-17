@@ -17,4 +17,17 @@ user node["mongodb"]["user"] do
   action [ :create, :manage ]
 end
 
-include_recipe "mongodb::default"
+unless ::File.exists?('/usr/bin/mongo')
+	include_recipe "mongodb::default"
+end
+
+template "#{node[:basedir]}/scripts/auth.js" do
+  source "auth.js.erb"
+  owner node["mongodb"]["user"]
+  group node["mongodb"]["group"]
+  mode "0644"
+end
+
+execute "auth" do
+    command "mongo admin #{node[:basedir]}/scripts/auth.js"
+end

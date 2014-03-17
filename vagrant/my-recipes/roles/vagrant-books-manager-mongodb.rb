@@ -8,12 +8,13 @@ run_list(
 )
 
 default_attributes(
-	:basedir => "/usr/local/books-manager",
+	:basedir => "/usr/local/mongodb_repo",
 	:environment => "vagrant",
 	"nodejs.apphost" => "localhost",
 	"nodejs.ssl" => "false",
 	"nodejs.port" => "9000"
 )
 override_attributes(
-	:mongodb => { :enable_rest => true }
+	:mongodb => { :enable_rest => true,
+	:install_method => '10gen' }
 )

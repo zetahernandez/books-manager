@@ -1,0 +1,5 @@
+db.addUser({
+	user: <%= "'#{node[:books_manager_mongodb][:admin_user]}'" %>,
+	pwd: <%= "'#{node[:books_manager_mongodb][:admin_pass]}'" %>,
+	roles: [<%= "'#{node[:books_manager_mongodb][:admin_role]}'" %>]
+})
