@@ -18,7 +18,7 @@ user node["mongodb"]["user"] do
 end
 
 unless ::File.exists?('/usr/bin/mongo')
-	include_recipe "mongodb::default"
+	include_recipe "chef-mongodb::default"
 end
 
 template "#{node[:basedir]}/scripts/auth.js" do
