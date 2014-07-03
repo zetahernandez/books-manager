@@ -28,6 +28,16 @@ template "#{node[:basedir]}/scripts/auth.js" do
   mode "0644"
 end
 
+template "#{node[:basedir]}/scripts/users.js" do
+  source "users.js.erb"
+  owner node["mongodb"]["user"]
+  group node["mongodb"]["group"]
+  mode "0644"
+end
 execute "auth" do
     command "mongo admin #{node[:basedir]}/scripts/auth.js"
+end
+
+execute "create user books" do
+    command "mongo books #{node[:basedir]}/scripts/users.js"
 end

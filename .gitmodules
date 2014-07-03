@@ -1,9 +1,9 @@
-[submodule "vagrant/my-recipes/cookbooks/chef-mongodb"]
-	path = vagrant/my-recipes/cookbooks/chef-mongodb
-	url = git://github.com/edelight/chef-mongodb.git
 [submodule "vagrant/my-recipes/cookbooks/python"]
 	path = vagrant/my-recipes/cookbooks/python
 	url = https://github.com/algas/chef-solo-cookbook-python.git
 [submodule "vagrant/my-recipes/cookbooks/runit"]
 	path = vagrant/my-recipes/cookbooks/runit
-	url = https://github.com/hw-cookbooks/runit
+	url = https://github.com/hw-cookbooks/runit.git
+[submodule "vagrant/my-recipes/cookbooks/chef-mongodb"]
+	path = vagrant/my-recipes/cookbooks/chef-mongodb
+	url = https://github.com/edelight/chef-mongodb.git
