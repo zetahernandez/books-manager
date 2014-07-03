@@ -4,3 +4,6 @@
 [submodule "vagrant/my-recipes/cookbooks/runit"]
 	path = vagrant/my-recipes/cookbooks/runit
 	url = https://github.com/hw-cookbooks/runit.git
+[submodule "vagrant/my-recipes/cookbooks/mongodb"]
+	path = vagrant/my-recipes/cookbooks/mongodb
+	url = https://github.com/edelight/chef-mongodb.git
