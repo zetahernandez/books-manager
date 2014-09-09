@@ -5,4 +5,4 @@ license           "Apache 2.0"
 description       "Installs and configures mongodb"
 version           "0.0.1"
 
-depends "chef-mongodb"
+depends 'mongodb'

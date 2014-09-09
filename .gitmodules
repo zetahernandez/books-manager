@@ -7,3 +7,9 @@
 [submodule "vagrant/my-recipes/cookbooks/mongodb"]
 	path = vagrant/my-recipes/cookbooks/mongodb
 	url = https://github.com/edelight/chef-mongodb.git
+[submodule "vagrant/my-recipes/cookbooks/yum"]
+	path = vagrant/my-recipes/cookbooks/yum
+	url = https://github.com/opscode-cookbooks/yum
+[submodule "vagrant/my-recipes/cookbooks/yum-epel"]
+	path = vagrant/my-recipes/cookbooks/yum-epel
+	url = https://github.com/opscode-cookbooks/yum-epel.git
