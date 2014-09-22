@@ -43,7 +43,10 @@
     "node-uuid": "~1.4.1",
     "connect-mongo": "~0.4.0",
     "passport.socketio": "~2.2.0",
-    "dbox": "~0.6.3"
+    "dbox": "~0.6.3",
+    "pdf2json": "~0.7.1",
+    "connect-multiparty": "~1.2.4",
+    "pdf-extract": "~1.0.7"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -68,7 +71,9 @@
     "grunt-neuter": "0.5.0",
     "grunt-contrib-watch": "~0.5.1",
     "grunt-express-server": "~0.4.1",
-    "grunt-contrib-connect": "~0.3.0"
+    "grunt-contrib-connect": "~0.3.0",
+    "grunt-node-inspector": "~0.1.5",
+    "grunt-debug-task": "~0.1.5"
   },
   "engines": {
     "node": ">=0.8.0"

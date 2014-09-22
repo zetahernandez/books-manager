@@ -1,7 +1,7 @@
 // Generated on 2013-07-31 using generator-ember 0.5.9
 'use strict';
 
-var mountFolder = function (connect, dir) {
+var mountFolder = function(connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
 
@@ -11,7 +11,7 @@ var mountFolder = function (connect, dir) {
 // use this if you want to match all subfolders:
 // 'test/spec/**/*.js'
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
   // load all grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
@@ -46,7 +46,7 @@ module.exports = function (grunt) {
       },
       test: {
         options: {
-          middleware: function (connect) {
+          middleware: function(connect) {
             return [
               mountFolder(connect, 'public/.tmp'),
               mountFolder(connect, 'public/app/bower_components'),
@@ -144,6 +144,19 @@ module.exports = function (grunt) {
       server: {
         options: {
           debugInfo: true
+        }
+      }
+    },
+    'node-inspector': {
+      custom: {
+        options: {
+          'web-port': 1337,
+          'web-host': 'localhost',
+          'debug-port': 5857,
+          'save-live-edit': true,
+          'no-preload': true,
+          'stack-trace-limit': 4,
+          'hidden': ['node_modules']
         }
       }
     },
@@ -275,7 +288,7 @@ module.exports = function (grunt) {
     },
     emberTemplates: {
       options: {
-        templateName: function (sourceFile) {
+        templateName: function(sourceFile) {
           var templatePath = yeomanConfig.app + '/templates/';
           return sourceFile.replace(templatePath, '');
         }
@@ -289,7 +302,7 @@ module.exports = function (grunt) {
     neuter: {
       app: {
         options: {
-          filepathTransform: function (filepath) {
+          filepathTransform: function(filepath) {
             return 'public/app/' + filepath;
           }
         },
@@ -301,9 +314,9 @@ module.exports = function (grunt) {
 
   //grunt.renameTask('regarde', 'watch');
 
-  grunt.registerTask('server', function (target) {
+  grunt.registerTask('server', function(target) {
     if (target === 'dist') {
-      return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
+      return grunt.task.run(['build', 'open', 'connect:dist:keepalive', ]);
     }
 
     grunt.task.run([
@@ -312,6 +325,7 @@ module.exports = function (grunt) {
       'neuter:app',
       'express:dev',
       'watch'
+
     ]);
   });
 
