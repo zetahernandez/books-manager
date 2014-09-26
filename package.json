@@ -46,7 +46,9 @@
     "dbox": "~0.6.3",
     "pdf2json": "~0.7.1",
     "connect-multiparty": "~1.2.4",
-    "pdf-extract": "~1.0.7"
+    "pdf-extract": "~1.0.7",
+    "googleapis": "~1.0.14",
+    "async": "~0.9.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
