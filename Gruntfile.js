@@ -264,23 +264,7 @@ module.exports = function(grunt) {
         }]
       }
     },
-    concurrent: {
-      server: [
-        'emberTemplates',
-        'compass:server'
-      ],
-      test: [
-        'emberTemplates',
-        'compass'
-      ],
-      dist: [
-        'emberTemplates',
-        'compass:dist',
-        'imagemin',
-        'svgmin',
-        'htmlmin'
-      ]
-    },
+
     karma: {
       unit: {
         configFile: 'karma.conf.js'
@@ -321,7 +305,8 @@ module.exports = function(grunt) {
 
     grunt.task.run([
       'clean:server',
-      'concurrent:server',
+      'emberTemplates',
+      'compass:server',
       'neuter:app',
       'express:dev',
       'watch'
@@ -332,7 +317,8 @@ module.exports = function(grunt) {
   grunt.registerTask('test', [
     'clean:server',
     'concurrent:test',
-    'connect:test',
+    'emberTemplates',
+    'compass',
     'neuter:app',
     'open:test',
     'mocha'
@@ -341,7 +327,11 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'useminPrepare',
-    'concurrent:dist',
+    'emberTemplates',
+    'compass:dist',
+    'imagemin',
+    'svgmin',
+    'htmlmin',
     'neuter:app',
     'concat',
     'cssmin',
