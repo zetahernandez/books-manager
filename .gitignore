@@ -1,4 +1,5 @@
 node_modules
+.c9
 temp
 dist
 app/bower_components
