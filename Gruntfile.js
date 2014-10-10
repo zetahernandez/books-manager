@@ -305,9 +305,9 @@ module.exports = function(grunt) {
 
     grunt.task.run([
       'clean:server',
-      'emberTemplates',
-      'compass:server',
-      'neuter:app',
+      // 'emberTemplates',
+      // 'compass:server',
+      // 'neuter:app',
       'express:dev',
       'watch'
 
