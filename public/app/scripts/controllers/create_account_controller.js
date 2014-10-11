@@ -1,1 +1,0 @@
-BooksManager.CreateAccountController = Ember.ObjectController.extend({});
