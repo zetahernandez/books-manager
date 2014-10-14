@@ -26,11 +26,6 @@
   "maxstatements": 25,
   "maxcomplexity": 20,
   "globals": {
-    "describe": true,
-    "expect": true,
-    "it": true,
-    "after": true,
-    "before": true,
-    "ender": true
+    
   }
 }
